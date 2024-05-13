@@ -21,7 +21,7 @@ Route::get('profiles', [ProfileController::class, 'index']);
 Route::middleware('auth.api')->group(function(){
     Route::post('profile/create', [ProfileController::class, 'create']);
     Route::post('profile/{id}/comment/create', [ProfileController::class, 'comment']);
-    Route::put('profile/{id}/update/', [ProfileController::class, 'update']);
+    Route::put('profile/{id}/update', [ProfileController::class, 'update']);
     Route::delete('profile/{id}/delete', [ProfileController::class, 'delete']);
 });
 

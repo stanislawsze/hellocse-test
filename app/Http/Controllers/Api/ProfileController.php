@@ -81,7 +81,7 @@ class ProfileController extends Controller
         $profile->lastname = $request->lastname ?? $profile->lastname;
         $profile->save();
 
-        return response()->json(['message' => 'Updated'], Response::HTTP_ACCEPTED);
+        return response()->json(['message' => 'Updated'], Response::HTTP_OK);
     }
 
     /**
