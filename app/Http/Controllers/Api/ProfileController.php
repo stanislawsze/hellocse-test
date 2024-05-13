@@ -10,7 +10,6 @@ use App\Models\Administrator;
 use App\Models\Comment;
 use App\Models\Profil;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

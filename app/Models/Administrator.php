@@ -38,11 +38,13 @@ class Administrator extends Model
         return $this->hasMany(Profile::class);
     }
 
-    public function hasComment($profileId): bool
+    /**
+     * Check if an admin already have a comment or no
+     * @param int $profileId
+     * @return bool
+     */
+    public function hasComment(int $profileId): bool
     {
-        return Comment::where([
-            ['administrator_id', $this->id],
-            ['profil_id', $profileId]
-            ])->count() > 0;
+        return $this->approvedComments()->where('profil_id', $profileId)->count() > 0;
     }
 }
