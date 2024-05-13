@@ -17,9 +17,11 @@ class CommentSeeder extends Seeder
     {
         $profiles = Profil::all()->pluck('id');
         $admin = Administrator::first()->id;
-        Comment::factory(5)->create([
-            'profil_id' => $profiles->random(),
-            'administrator_id' => $admin,
-        ]);
+        for($i = 0; $i < 10; $i++) {
+            Comment::factory()->create([
+                'profil_id' => $profiles->random(),
+                'administrator_id' => $admin,
+            ]);
+        }
     }
 }

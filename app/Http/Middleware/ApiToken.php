@@ -20,7 +20,7 @@ class ApiToken
         if (!$accessToken) {
             return response()->json(['message' => 'Missing token'], Response::HTTP_UNAUTHORIZED);
         }
-        $administrator = Administrator::where('api_token', $accessToken)->first();
+        $administrator = Administrator::where('bearer_token', $accessToken)->first();
 
         if(!$administrator){
             return response()->json(['message' => 'Invalid token'], Response::HTTP_UNAUTHORIZED);

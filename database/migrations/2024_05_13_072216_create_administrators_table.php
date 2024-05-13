@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('administrators', function (Blueprint $table) {
             $table->id();
             $table->string('api_secret');
+            $table->string('bearer_token')->nullable();
             $table->timestamps();
         });
     }

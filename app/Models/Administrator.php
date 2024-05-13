@@ -12,10 +12,12 @@ class Administrator extends Model
     use HasFactory;
 
     protected $fillable = [
-        'api_secret'
+        'id','api_secret','bearer_token'
     ];
     protected $casts = [
-        'api_secret' => 'string'
+        'id' => 'integer',
+        'api_secret' => 'string',
+        'bearer_token' => 'string'
     ];
 
     /**
@@ -34,5 +36,13 @@ class Administrator extends Model
     public function profiles(): HasMany
     {
         return $this->hasMany(Profile::class);
+    }
+
+    public function hasComment($profileId): bool
+    {
+        return Comment::where([
+            ['administrator_id', $this->id],
+            ['profil_id', $profileId]
+            ])->count() > 0;
     }
 }
